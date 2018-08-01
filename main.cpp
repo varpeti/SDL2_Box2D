@@ -1,38 +1,40 @@
-#include "CApp.h"
+#include "CApp/CApp.h"
  
 CApp::CApp() 
 {
-    Surf_Display = NULL;
-    Running = true;
+    running = true;
+    window = NULL;
+    renderer = NULL;
+    engine = NULL;
 }
- 
-int CApp::OnExecute() 
+
+int CApp::onExecute() 
 {
-    if(OnInit() == false) 
+    if(onInit() == false) 
     {
         return -1;
     }
  
     SDL_Event Event;
  
-    while(Running) 
+    while(running) 
     {
         while(SDL_PollEvent(&Event)) 
         {
-            OnEvent(&Event);
+            onEvent(&Event);
         }
  
-        OnLoop();
-        OnRender();
+        onLoop();
+        onRender();
     }
  
-    OnCleanup();
+    onCleanup();
  
     return 0;
 }
  
-int main(int argc, char* argv[]) 
+int main() 
 {
     CApp theApp;
-    return theApp.OnExecute();
+    return theApp.onExecute();
 }

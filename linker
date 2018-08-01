@@ -5,9 +5,9 @@
 
 ##################A projekt paraméterei:################
 fordito="g++"
-projectfileok1="main.cpp CApp_OnCleanUp.cpp CApp_OnEvent.cpp CApp_OnInit.cpp CApp_OnLoop.cpp CApp_OnRender.cpp"
+projectfileok1=$(find . -name "*.cpp")
 projectfileok2=""
-parameterek="-std=c++14 -lSDL"
+parameterek="-std=c++14 -lSDL2"
 nev="main.run"
 futtatas=true
 ########################################################
